@@ -6,8 +6,13 @@ const server = http.createServer(app);
 
 const io = require("socket.io")(server, { cors: { origin: "*" } });
 
-io.on("connection", () => {
-  console.log(socket.id);
-});
-
 server.listen(port);
+
+io.on("connection", (socket) => {
+  console.log(socket.id);
+  socket.broadcast.emit("event", "this is the broadcast");
+
+  socket.on("message", (message) => {
+    socket.broadcast.emit("message", message);
+  });
+});
