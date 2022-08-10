@@ -8,6 +8,8 @@ const io = require("socket.io")(server, { cors: { origin: "*" } });
 
 server.listen(port);
 
+io.use()
+
 io.on("connection", (socket) => {
   console.log(socket.id);
   socket.broadcast.emit("event", "this is the broadcast");
