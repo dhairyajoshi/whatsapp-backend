@@ -2,6 +2,7 @@ const express= require('express')
 const users= require('./api/routes/users')
 const mongoose = require('mongoose')
 const bodyParser=require('body-parser')
+const morgan=require('morgan')
 require('dotenv').config();
 mongoose.connect(
     "mongodb+srv://dhairya:" +
@@ -10,13 +11,10 @@ mongoose.connect(
   );
 
 const app= express()
+app.use(morgan('dev'))
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use('/user',users)
 
-app.get('/',(req,res,next)=>{
-    res.send('yes')
-})
-
-module.exports=app
+module.exports=app 

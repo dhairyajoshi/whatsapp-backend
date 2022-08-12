@@ -4,11 +4,13 @@ const port = process.env.PORT || 3000;
 require('dotenv').config();
 const server = http.createServer(app);
 
-const io = require("socket.io")(server, { cors: { origin: "*" } });
+const io = require("socket.io")(server, { cors: { origin: "*" },rejectUnauthorized: false });
 
 server.listen(port);
 
-io.use()
+io.on('connect_error',(data)=>{
+  console.log('yes');
+})
 
 io.on("connection", (socket) => {
   console.log(socket.id);
