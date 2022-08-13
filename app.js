@@ -1,5 +1,6 @@
 const express= require('express')
 const users= require('./api/routes/users')
+const messages= require('./api/routes/messages')
 const mongoose = require('mongoose')
 const bodyParser=require('body-parser')
 const morgan=require('morgan')
@@ -16,5 +17,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use('/user',users)
+app.use('/messages',messages)
 
 module.exports=app 

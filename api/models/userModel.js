@@ -6,6 +6,7 @@ const userSchema = mongoose.Schema({
   phoneNo: { type: String, unique: true },
   bio: String,
   contacts: [{ type: mongoose.Schema.Types.ObjectId, ref: "WaUser" }],
+  messages: [{ type: mongoose.Schema.Types.ObjectId, ref: "WaMessage" }],
   socketId: String,
 });
 
