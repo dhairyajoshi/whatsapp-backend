@@ -19,4 +19,8 @@ io.on("connection", (socket) => {
   socket.on("message", (message) => {
     socket.broadcast.emit("message", message);
   });
+
+  socket.on('refresh',(data)=>{
+    socket.broadcast.emit('refresh')
+  })
 });
