@@ -21,6 +21,6 @@ io.on("connection", (socket) => {
   });
 
   socket.on('refresh',(data)=>{
-    socket.broadcast.emit('refresh')
+    io.emit('refresh')
   })
 });
