@@ -4,7 +4,7 @@ const router = express.Router();
 const userController = require("../controllers/userController");
 const authCheck = require("../middewares/authCheck");
 
-router.get("/", authCheck, userController.getUsers);
+router.post("/get", authCheck, userController.getUsers);
 
 router.post("/", userController.signUp);
 
