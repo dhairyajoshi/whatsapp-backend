@@ -10,7 +10,7 @@ mongoose.connect(
       process.env.MongoPW +
       "@cluster0.vpuxf.mongodb.net/?retryWrites=true&w=majority"
   );
-
+ 
 const app= express()
 app.use(morgan('dev'))
 app.use(bodyParser.urlencoded({ extended: false }));
