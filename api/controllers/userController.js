@@ -45,7 +45,7 @@ module.exports.signUp = async (req, res, next) => {
   };
 
 module.exports.getUsers = async (req,res,next)=>{
-    const users= await User.find().where("phoneNo").ne(req.UserData["phoneNo"]).exec();
+    const users= await User.find({phoneNo:req.body.users}).exec();
 
     res.json(users)
 }
