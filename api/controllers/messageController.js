@@ -16,7 +16,7 @@ module.exports.send = async(req,res,next)=>{
         time:time,
     })
 
-    await msg.save();
+    msg.save();
 
     const rec=await userModel.findOne({phoneNo:receiver}).exec()
     const sen= await userModel.findOne({phoneNo:sender}).exec()
